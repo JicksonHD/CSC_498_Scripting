@@ -30,6 +30,32 @@ Below is a step-by-step explanation of the implemented code:<br>
   <li>Executing functions: The code calls testing_subdomains(), fetch_HTML_files(), and testing_dir() functions with the target URL as an argument.</li>
 </ol>
 
+# Challenges
+
+<ol>
+<li>Handling various types of URL formats and schemes.
+</li>
+<li>Avoiding infinite loops caused by recursive links on the website.
+</li>
+<li>Handling website redirects, cookies, and sessions.
+</li>
+<li>Dealing with websites that use JavaScript to load content or build URLs dynamically.
+</li>
+<li>Managing performance and resource usage when scanning large websites.
+</li>
+<li>Handling different types of encoding and decoding errors while parsing HTML content.
+</li>
+<li>Respecting website's robots.txt rules and rate limiting.
+</li>
+
+</ol>
+Handling various types of URL formats and schemes.
+Avoiding infinite loops caused by recursive links on the website.
+Handling website redirects, cookies, and sessions.
+Dealing with websites that use JavaScript to load content or build URLs dynamically.
+Managing performance and resource usage when scanning large websites.
+Handling different types of encoding and decoding errors while parsing HTML content.
+Respecting website's robots.txt rules and rate limiting.
 
 # Conclusion
 
