@@ -50,27 +50,27 @@ def fetch_HTML_files(target_url):
         return "No such domain"
 print(fetch_HTML_files(url))
 
-def testing_dir(target_url):
-    subdomains_output = []
-    with open("./subdomains_dictionary.bat") as file:
-        for line in file:
-            subdomain = line.strip()
-            if subdomain[len(subdomain)-1] == ".":
-                continue
-            domain = subdomain + "." + target_url
-            url = "http://" + domain
-            print(domain)
-            try:
-                response = urllib.request.urlopen(url)
-            except urllib.error.URLError:
-                continue
-            if response.code == 200:
-                subdomains_output.append(domain)
+# def testing_dir(target_url):
+#     subdomains_output = []
+#     with open("./subdomains_dictionary.bat") as file:
+#         for line in file:
+#             subdomain = line.strip()
+#             if subdomain[len(subdomain)-1] == ".":
+#                 continue
+#             domain = subdomain + "." + target_url
+#             url = "http://" + domain
+#             print(domain)
+#             try:
+#                 response = urllib.request.urlopen(url)
+#             except urllib.error.URLError:
+#                 continue
+#             if response.code == 200:
+#                 subdomains_output.append(domain)
 
-    with open("./subdomains_output.bat", "w") as output_file:
-        for domain in subdomains_output:
-            output_file.write(domain + "\n")
+#     with open("./subdomains_output.bat", "w") as output_file:
+#         for domain in subdomains_output:
+#             output_file.write(domain + "\n")
 
-    return subdomains_output
+#     return subdomains_output
 
 url = "testphp.vulnweb.com"
