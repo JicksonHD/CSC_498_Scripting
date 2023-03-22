@@ -1,6 +1,8 @@
 import urllib.request
 import urllib.error
 import sys
+import requests
+import re
 
 if len(sys.argv) < 2:
     print("Please provide the url")
@@ -35,4 +37,14 @@ def testing_subdomains(target_url):
 url = "testphp.vulnweb.com"
 
 print(testing_subdomains(url))
-print(urllib.request.urlopen("https://" + url))
+
+def fetch_HTML_files(target_url):
+    try:
+        response = requests.get("http://" + target_url)
+        links = re.findall('href="(.*?)"', response.content.decode('utf-8'))
+        with open("./files_output.txt", "a") as files_output_file:
+            for link in links:
+                files_output_file.write(link + "\n")
+        return links
+    except requests.exceptions.ConnectionError:
+        return "No such domain"
