@@ -29,6 +29,8 @@ Below is a step-by-step explanation of the implemented code:<br>
 </ol>
 
 
+# Conclusion
 
+The used Python script efficiently locates subdomains, directories, and files on a target website by using text files that have been supplied and regular expressions to parse HTML. It is simpler to analyze and find potential vulnerabilities in the web application because the script saves the results in separate output files.
 
 
