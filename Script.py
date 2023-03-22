@@ -15,7 +15,7 @@ def testing_subdomains(target_url):
     subdomains_output = []
     with open("./subdomains_dictionary.bat") as file:
         for line in file:
-            subdomain = line.strip()
+            subdomain = re.sub(r"^\s+|\s+$", "", line)
             if subdomain[len(subdomain)-1] == ".":
                 continue
             domain = subdomain + "." + target_url
@@ -54,7 +54,7 @@ def testing_dir(target_url):
     subdir_output = []
     with open("./dirs_dictionary.bat") as file:
         for line in file:
-            subdir = line.strip()
+            subdir = re.sub(r"^\s+|\s+$", "", line)
             subdir = target_url + "/" + subdir
             url = "http://" + subdir
             print(url)
