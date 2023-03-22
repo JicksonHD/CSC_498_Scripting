@@ -16,7 +16,7 @@ def testing_subdomains(target_url):
     with open("./subdomains_dictionary.bat") as file:
         for line in file:
             subdomain = line.strip()
-            if subdomain == "":
+            if subdomain[len(subdomain)-1] == ".":
                 continue
             domain = subdomain + "." + target_url
             url = "http://" + domain
@@ -38,13 +38,13 @@ url = "testphp.vulnweb.com"
 
 print(testing_subdomains(url))
 
-def fetch_HTML_files(target_url):
-    try:
-        response = requests.get("http://" + target_url)
-        links = re.findall('href="(.*?)"', response.content.decode('utf-8'))
-        with open("./files_output.txt", "a") as files_output_file:
-            for link in links:
-                files_output_file.write(link + "\n")
-        return links
-    except requests.exceptions.ConnectionError:
-        return "No such domain"
+# def fetch_HTML_files(target_url):
+#     try:
+#         response = requests.get("http://" + target_url)
+#         links = re.findall('href="(.*?)"', response.content.decode('utf-8'))
+#         with open("./files_output.txt", "a") as files_output_file:
+#             for link in links:
+#                 files_output_file.write(link + "\n")
+#         return links
+#     except requests.exceptions.ConnectionError:
+#         return "No such domain"
